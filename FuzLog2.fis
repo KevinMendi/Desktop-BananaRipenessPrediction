@@ -1,0 +1,42 @@
+[System]
+Name='FuzLog2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Temperature'
+Range=[27 37]
+NumMFs=1
+MF1='27-31Deg':'trimf',[27 28.9708994708995 31]
+
+[Input2]
+Name='Ethylene'
+Range=[0 1200]
+NumMFs=4
+MF1='Ed5.1':'trimf',[96 250 407]
+MF2='Ed4.1':'trimf',[5 40 96]
+MF3='Ed6.1':'trimf',[407 573.015873015873 746]
+MF4='Ed7.1':'trimf',[746 917.5 1100]
+
+[Output1]
+Name='output1'
+Range=[0 96]
+NumMFs=4
+MF1='24-48hr':'trimf',[24 36 48]
+MF2='48-72hr':'trimf',[48 60 72]
+MF3='72-96hr':'trimf',[72 84 96]
+MF4='0-24hr':'trimf',[-0.2502 11.75 23.75]
+
+[Rules]
+1 4, 4 (1) : 1
+1 3, 1 (1) : 1
+1 1, 2 (1) : 1
+1 2, 3 (1) : 1

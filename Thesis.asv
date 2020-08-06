@@ -1,0 +1,3 @@
+f = readfis('FuzLog.fis')
+a = input('Temperature: ')
+b = 
